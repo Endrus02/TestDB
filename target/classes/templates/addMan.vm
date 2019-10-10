@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление производителя</title>
+</head>
+<body>
+<p>Добавление производителя</p>
+<br>
+<form action="/addMan" method="post">
+    <span> Добавление </span>
+    <input type="text" name="inn" maxlength="12" minlength="12" placeholder="ИНН"/>
+    <input type="text" name="manname" placeholder="Название"/>
+    <button id="add" type="submit">Добавить</button>
+</form>
+<br />
+<a href="/">На главную</a>
+</body>
+</html>

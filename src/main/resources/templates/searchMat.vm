@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск по материалу</title>
+</head>
+<body>
+<h1>Материалы</h1>
+
+<h2><font color="red">$!message</font></h2>
+
+<form action="/searchMat" method="post">
+    <span> Поиск </span>
+    <input type="text" name="name" placeholder="Название"/>
+    <button id="search" type="submit">Поиск</button>
+</form>
+<br>
+<br>
+
+<a href="/addMat">Добавление материала</a>
+
+    #if( $materials.isEmpty() )
+    Ничего не найдено
+    #else
+    <h1>Результаты поиска ($!name)</h1>
+
+    <form action="/massDelMat" method="post">
+        <button type="submit">Удалить выбранные</button>
+        <table>
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Название</th>
+                <th></th>
+                <th></th>
+            </tr>
+            #foreach( $material in $materials )
+                <tr>
+                    <td><input name="matIds" type="checkbox" value="$material.getId()"></td>
+                    <td>$material.getId()</td>
+                    <td>$material.getMatname()</td>
+                    <td><a href="/editMat/$material.getId()">редактировать</a></td>
+                    <td><a href="/delMat/$material.getId()">удалить</a></td>
+                </tr>
+            #end
+        </table>
+        <button type="submit">Удалить выбранные</button>
+    </form>
+    #end
+<br />
+<a href="/">На главную</a>
+</body>
+</html>

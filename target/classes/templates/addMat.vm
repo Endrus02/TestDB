@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление материала</title>
+</head>
+<body>
+<p>Добавление материала</p>
+<br>
+<form action="/addMat" method="post">
+    <span> Добавление </span>
+    <input type="text" name="matname" placeholder="Название"/>
+    <button id="add" type="submit">Добавить</button>
+</form>
+<br />
+<a href="/">На главную</a>
+</body>
+</html>

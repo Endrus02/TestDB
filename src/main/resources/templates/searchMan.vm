@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск по производителю</title>
+</head>
+<body>
+<h1>Производители</h1>
+
+<h2><font color="red">$!message</font></h2>
+
+<form action="/searchMan" method="post">
+    <span> Поиск </span>
+    <input type="text" name="name" placeholder="Название"/>
+    <button id="search" type="submit">Поиск</button>
+</form>
+<br>
+<br>
+
+<a href="/addMan">Добавление производителя</a>
+
+    #if( $brands.isEmpty() )
+        Ничего не найдено
+    #else
+        <h1>Результаты поиска ($!name)</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>ИНН</th>
+                <th>Название</th>
+                <th></th>
+                <th></th>
+            </tr>
+            #foreach( $brand in $brands )
+                <tr>
+                    <td>$brand.getId()</td>
+                    <td>$brand.getInn()</td>
+                    <td>$brand.getManname()</td>
+                    <td><a href="/editMan/$brand.getId()">редактировать</a></td>
+                    <td><a href="/delMan/$brand.getId()">удалить</a></td>
+                </tr>
+            #end
+        </table>
+    #end
+<br />
+<a href="/">На главную</a>
+</body>
+</html>

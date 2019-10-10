@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Выбор операции</title>
+</head>
+<body>
+<p>Welcome, $!user.getUslogin() <a href="/logout">Выход</a></p>
+<p>Выбор операции</p>
+<br>
+<br>
+<a href="/searchMan"> Поиск по организации</a>
+<br>
+<br>
+<a href="/searchMat"> Поиск по материалу</a>
+</body>
+</html>

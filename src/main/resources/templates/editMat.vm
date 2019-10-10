@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование материала</title>
+</head>
+<body>
+<p>Редактирование материала</p>
+<br>
+<form action="/editMat" method="post">
+    <span> Редактирование </span>
+    <input type="hidden" name="id" value="$!material.getId()">
+    <input type="text" name="matname" placeholder="Название" value="$!material.getMatname()"/>
+    <button id="search" type="submit">Внести изменения</button>
+</form>
+<br />
+
+<h1>Производится</h1>
+
+#set ($materialBrands = $material.getManufacturersSet())
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>ИНН</th>
+        <th>Название</th>
+        <th></th>
+    </tr>
+    #foreach( $brand in $materialBrands )
+        <tr>
+            <td>$brand.getId()</td>
+            <td>$brand.getInn()</td>
+            <td>$brand.getManname()</td>
+            <td><a href="/delManFromMat/$brand.getId()/$material.getId()">удалить</a></td>
+        </tr>
+    #end
+</table>
+
+<h1>Не производит</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>ИНН</th>
+        <th>Название</th>
+        <th></th>
+    </tr>
+    #foreach( $brand in $brands )
+        #if ( !$materialBrands.contains($brand) )
+            <tr>
+                <td>$brand.getId()</td>
+                <td>$brand.getInn()</td>
+                <td>$brand.getManname()</td>
+                <td><a href="/addManToMat/$brand.getId()/$material.getId()">Добавить</a></td>
+            </tr>
+        #end
+    #end
+</table>
+
+<a href="/">На главную</a>
+</body>
+</html>
